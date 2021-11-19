@@ -7,8 +7,8 @@ import 'package:sprout_the_app/pages/splash.dart';
 import 'package:sprout_the_app/pages/search.dart';
 import 'package:sprout_the_app/pages/loginscreen.dart';
 import 'package:sprout_the_app/pages/favorites.dart';
-import 'package:sprout_the_app/pages/weatherinfo.dart';
-
+//import 'package:sprout_the_app/pages/weatherinfo.dart';
+import 'package:sprout_the_app/pages/home_tab.dart';
 
 void main() => runApp(MaterialApp(
     initialRoute: '/',
@@ -21,7 +21,8 @@ void main() => runApp(MaterialApp(
       '/get_started_1':(context) => get_started_1(),
       '/get_started_2':(context) => get_started_2(),
       '/get_started_3':(context) => get_started_3(),
-      '/weatherinfo':(context) => weatherinfo(),
+      '/home_tab':(context) => home_tab(),
+
 
     }
 ));
