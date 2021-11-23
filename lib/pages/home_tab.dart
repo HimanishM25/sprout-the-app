@@ -97,7 +97,7 @@ class _home_tabState extends State<home_tab> {
           child: Column(mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Hi Himanish',
+              Text('Hi User',
                 style: TextStyle(
                     fontSize: 25,
                     fontFamily: 'Poppins',
