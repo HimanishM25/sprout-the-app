@@ -22,7 +22,7 @@ class _get_started_3State extends State<get_started_3> {
                 children: [
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/weatherinfo');
+                        Navigator.pushNamed(context, '/loginscreen');
                       },
                       child: Text("Skip",
                           style: TextStyle(

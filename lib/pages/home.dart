@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
 
   Future getWeather() async{
 
-    final String apiEndpoint =("http://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=7943782b96c956a33b435a9880c6ce90");
+    final String apiEndpoint =("http://api.openweathermap.org/gs_data/2.5/weather?q=Mumbai&units=metric&appid=7943782b96c956a33b435a9880c6ce90");
     final Uri url = Uri.parse(apiEndpoint);
     final response = await http.post(url);
     var results =jsonDecode(response.body);

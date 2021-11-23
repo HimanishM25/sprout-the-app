@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class splash extends StatefulWidget {
   @override
   _splashState createState() => _splashState();
+
 }
 
 class _splashState extends State<splash> {
-  //bool _rememberMe = false;
+
   @override
   Widget build(BuildContext context) {
 
