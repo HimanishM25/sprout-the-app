@@ -13,9 +13,8 @@ class home_tab extends StatefulWidget {
 }
 
 class _home_tabState extends State<home_tab> {
-  var humidity;
   var temperature;
-  var address;
+  var address ;
   var location;
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -50,12 +49,14 @@ class _home_tabState extends State<home_tab> {
     // continue accessing the position of the device.
     return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
   }
-  Future<void> GetAddressFromLatLong(Position position)async {
+  Future GetAddressFromLatLong(Position position)async {
     List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
     print(placemarks);
     Placemark place = placemarks[0];
     address = '${place.locality},${place.country}';
+
     setState(()  {
+        address=address;
     });
   }
 
@@ -66,22 +67,23 @@ class _home_tabState extends State<home_tab> {
     GetAddressFromLatLong(position);
   }
 
-  Future getWeather() async {
-    final String apiEndpoint = ("https://api.openweathermap.org/data/2.5/weather?q=$address&units=metric&appid=cbf9c071f96e2af72aefe1863047f79d");
+   Future getWeather() async {
+    await address;
+    final String apiEndpoint =  ("https://api.openweathermap.org/data/2.5/weather?q=$address&units=metric&appid=cbf9c071f96e2af72aefe1863047f79d");
     final Uri url = Uri.parse(apiEndpoint);
     final response = await http.post(url);
-    var results = jsonDecode(response.body);
+    var results = await jsonDecode(response.body);
 
     setState(() {
       this.temperature = results['main']['temp'];
-      this.humidity = results['main']['humidity'];
     });
   }
 
   @override
   void initState() {
     super.initState();
-    getLocation().whenComplete(() => getWeather());
+    getLocation().then((value) => getWeather());
+
 
 
   }
@@ -132,7 +134,7 @@ class _home_tabState extends State<home_tab> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${address}',
+                      Text(address!=null? address :'-',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color: Colors.white,

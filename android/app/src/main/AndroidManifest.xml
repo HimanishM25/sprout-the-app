@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
    <application
-        android:label="sprout_the_app"
+        android:label="Sprout"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
